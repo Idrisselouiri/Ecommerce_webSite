@@ -1,0 +1,123 @@
+header{
+    height: 100px;
+    width: 100%;
+    padding: 10px 20px;
+    padding: 10px 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+header nav{
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    position: relative;
+}
+header nav .navbar{
+    display: flex;
+    column-gap: 40px;
+}
+header nav .navbar li a {
+    padding-bottom: 5px;
+}
+header nav .navbar li .active{
+    border-bottom: 1px solid black;
+}
+header form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 13px;
+    background-color: #ddd;
+    border-radius: 6px;
+}
+header form input{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: black;
+    padding: 0 20px 0 0;
+    font-size: 16px;
+}
+header form input::placeholder{
+    color: black;
+}
+header form span{
+    font-size: 18px;
+}
+.icons span{
+    margin: 0 10px;
+    font-size: 20px;
+}
+.hamburger-menu{
+    display: none;
+}
+.hamburger-menu span{
+    font-size: 25px;
+}
+
+@media screen and (max-width: 700px) {
+    header nav .navbar {
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+        position: fixed;
+        top: 90px;
+        right: -300px;
+        row-gap: 30px;
+        padding: 40px 0 0 10px;
+        width: 200px;
+        height: 100vh;
+        background-color: #000;
+    }
+    header nav .navbar li a{
+        color: white;
+        font-size: 20px;
+    }
+    .navbar.active{
+        right: 0;
+    }
+    .hamburger-menu{
+        display: block;
+    }
+    header nav h1{
+        font-size: 25px;
+    }
+    header form {
+        display: none;
+    }
+    .icons {
+        position: absolute;
+        right: 40px;
+    }
+}
+@media screen and (min-width:600px) and (max-width: 1000px){
+    header nav .navbar {
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+        position: fixed;
+        top: 90px;
+        right: -500px;
+        row-gap: 50px;
+        padding: 40px 0 0 10px;
+        width: 400px;
+        height: 100vh;
+        background-color: #000;
+    }
+    header nav .navbar li a{
+        color: white;
+        font-size: 25px;
+    }
+    .navbar.active{
+        right: 0;
+    }
+    .hamburger-menu{
+        display: block;
+    }
+}

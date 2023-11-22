@@ -1,0 +1,48 @@
+.container {
+  padding: 0 30px;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 50px;
+}
+.card {
+  padding: 0 10px;
+}
+.card .images {
+  background-color: #eee;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.card img {
+  object-fit: cover;
+  object-position: center;
+  height: 300px;
+  width: 100%;
+}
+.card .images .btn-add {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    border: 0;
+    padding: 10px;
+}
+.card .images .btn-add:hover{
+    background-color: red;
+}
+.card-body {
+  padding: 10px 15px;
+}
+.card-body p {
+  padding: 10px 0;
+  color: red;
+}
+.card-body span {
+  padding: 0 10px;
+  color: #aaa;
+  text-decoration: line-through;
+}
