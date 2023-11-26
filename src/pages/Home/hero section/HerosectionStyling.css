@@ -1,20 +1,28 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .hero-section{
-    padding: 0 20px;
-    padding: 0 30px;
-    margin-top: 130px;
-    display: grid;
-    grid-template-areas:
-      'menu main main main main main'
-      'menu main main main main main';
-    column-gap: 50px;
-  }
+  width: 90%;
+  display: grid;
+  grid-template-areas:
+    'menu menu main main main main'
+    'menu menu main main main main';
+  column-gap: 50px;
+  margin: 0 auto;
+  margin-top: 100px;
+}
 .container-menu{
-    grid-area: menu;
+  padding-top: 30px;
+  grid-area: menu;
+  border-right: 1px solid #9096a2;
 }
 .container-menu div{
   display: flex;
-  column-gap: 30px;
+  column-gap: 20px;
 }
 .container-menu p{
+  font-weight: 600;
   padding: 0 0 25px 0;
 }

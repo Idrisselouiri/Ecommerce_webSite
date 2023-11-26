@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "fname": "fssf",
+      "email": "fsfs",
+      "password": "546464",
+      "id": 1
+    },
+    {
+      "fname": "idriss",
+      "email": "idriss@gmail.com",
+      "password": "123456",
+      "id": 2
+    },
+    {
+      "fname": "idriss",
+      "email": "idriss@gmail.com",
+      "password": "123456",
+      "id": 3
+    },
+    {
+      "fname": "idriss",
+      "email": "idriss1@gmail.com",
+      "password": "123369",
+      "id": 4
+    }
+  ]
+}

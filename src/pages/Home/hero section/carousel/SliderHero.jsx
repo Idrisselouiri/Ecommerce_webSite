@@ -1,36 +1,16 @@
 import React, { useState } from "react";
-import "./Carousel.css";
-import { CarouselItem } from "./CarouselItem";
-import img1 from "./images/phone1.png";
-import img2 from "./images/phone2.png";
-import img3 from "./images/phone3.png";
+import "./SliderHeroStyling.css";
+import { SliderItem } from "./SliderItem";
+import { ProductSliderHero } from "./productSliderHero/ProductSliderHero";
 
-export const CarouselHero = () => {
+export const SliderHero = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const items = [
-    {
-      title: "iPhone 15 Series",
-      description: "Up to 10% off Voucher",
-      icon: img1,
-    },
-    {
-      title: "iPhone 14 Series",
-      description: "Up to 20% off Voucher",
-      icon: img2,
-    },
-    {
-      title: "iPhone 13 Series",
-      description: "Up to 30% off Voucher",
-      icon: img3,
-    },
-  ];
   const updateIndex = (newIndex) => {
     if (newIndex < 0) {
       newIndex = 0;
-    } else if (newIndex >= items.length) {
-      newIndex = items.length - 1;
+    } else if (newIndex >= ProductSliderHero.length) {
+      newIndex = ProductSliderHero.length - 1;
     }
-
     setActiveIndex(newIndex);
   };
   return (
@@ -39,8 +19,8 @@ export const CarouselHero = () => {
         className="inner"
         style={{ transform: `translate(-${activeIndex * 100}%)` }}
       >
-        {items.map((item) => {
-          return <CarouselItem item={item} width={"100%"} />;
+        {ProductSliderHero.map((products) => {
+          return <SliderItem products={products} width={"100%"} />;
         })}
       </div>
 
@@ -54,7 +34,7 @@ export const CarouselHero = () => {
           <span class="material-symbols-outlined">arrow_back_ios</span>{" "}
         </button>
         <div className="indicators">
-          {items.map((item, index) => {
+          {ProductSliderHero.map((items, index) => {
             return (
               <button
                 className="indicator-buttons"

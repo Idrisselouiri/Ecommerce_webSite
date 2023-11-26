@@ -1,68 +1,87 @@
 header{
     height: 100px;
     width: 100%;
-    padding: 10px 20px;
-    padding: 10px 30px;
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 100;
+    z-index: 2;
+    border-bottom: 1px solid #9096a2;
+}
+.header-bg{
+    background-color: #f4f4f6;
 }
 header nav{
     height: 100%;
-    width: 100%;
+    width: 90%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 18px;
     position: relative;
 }
-header nav .navbar{
+header nav h1{
+    font-size: 35px;
+}
+header nav ul{
     display: flex;
     column-gap: 40px;
 }
-header nav .navbar li a {
-    padding-bottom: 5px;
-}
-header nav .navbar li .active{
-    border-bottom: 1px solid black;
-}
-header form {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 13px;
-    background-color: #ddd;
-    border-radius: 6px;
-}
-header form input{
-    background-color: transparent;
-    border: none;
-    outline: none;
+header nav ul li a {
     color: black;
-    padding: 0 20px 0 0;
-    font-size: 16px;
-}
-header form input::placeholder{
-    color: black;
-}
-header form span{
-    font-size: 18px;
-}
-.icons span{
-    margin: 0 10px;
     font-size: 20px;
 }
-.hamburger-menu{
-    display: none;
+header nav ul li a.active {
+    border-bottom: 3px solid #9096a2;
 }
-.hamburger-menu span{
+header nav .mini-box{
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
+header nav form {
+    display: flex;
+    align-items: center;
+    padding: 0px 15px;
+    background-color: #e9eaec;
+    border-radius: 5px;
+}
+header nav form input{
+    min-width: 250px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: #4d566b;
+    font-size: 18px;
+}
+header nav form input::placeholder{
+    font-size: 18px;
+    color: #4d566b;
+    font-weight: 500;
+}
+header nav form span{
     font-size: 25px;
+}
+header nav .icons span{
+    margin: 0 10px;
+    font-size: 25px;
+}
+nav .menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 2.25rem;
+    height: 2rem;
+}
+
+nav .menu span {
+    height: 0.4rem;
+    width: 100%;
+    background-color: #000;
+    border-radius: 0.2rem;
 }
 
 @media screen and (max-width: 700px) {
-    header nav .navbar {
+    header nav ul {
         flex-direction: column;
         align-items: start;
         justify-content: start;
@@ -75,15 +94,15 @@ header form span{
         height: 100vh;
         background-color: #000;
     }
-    header nav .navbar li a{
+    nav ul.open {
+        right: 0;
+    }
+    header nav ul li a{
         color: white;
         font-size: 20px;
     }
-    .navbar.active{
-        right: 0;
-    }
-    .hamburger-menu{
-        display: block;
+    nav .menu {
+        display: flex;
     }
     header nav h1{
         font-size: 25px;
@@ -97,7 +116,7 @@ header form span{
     }
 }
 @media screen and (min-width:600px) and (max-width: 1000px){
-    header nav .navbar {
+    header nav ul {
         flex-direction: column;
         align-items: start;
         justify-content: start;
@@ -110,14 +129,8 @@ header form span{
         height: 100vh;
         background-color: #000;
     }
-    header nav .navbar li a{
+    header nav ul li a{
         color: white;
         font-size: 25px;
-    }
-    .navbar.active{
-        right: 0;
-    }
-    .hamburger-menu{
-        display: block;
     }
 }

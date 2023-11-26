@@ -1,26 +1,21 @@
-
 .carousel {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  background-color: black;
   justify-content: center;
   grid-area: main;
 }
-
 .inner {
   white-space: nowrap;
   transition: transform 0.3s;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
-
 .carousel-item {
+  background-color: #000;
   display: inline-flex;
   align-items: center;
-  justify-content: space-evenly;
-  background-color: #000;
-}
-.carousel-item-text{
-  color: #aaa;
+  justify-content: space-around;
 }
 .carousel-item-text .title{
   display: flex;
@@ -29,6 +24,9 @@
 }
 .carousel-item-text .title img{
   width: 50px;
+}
+.carousel-item-text .title p{
+  color: #fff;
 }
 .carousel-item-text .description h1{
   padding: 20px 0;
@@ -50,45 +48,37 @@
   color: white;
 }
 .carousel-img {
-  width: 250px;
-  padding: 0 20px 0 20px;
+  width: 200px;
 }
-
-/* final stage */
-
 .carousel-buttons {
   display: flex;
   justify-content: space-evenly;
 }
-
 .button-arrow {
   background: none;
+  color: white  ;
   border: none;
   cursor: pointer;
   margin-top: 20px;
 }
-
 .indicators {
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin-top: 20px;
 }
-
 .indicator-buttons {
   border: none;
   cursor: pointer;
 }
-
 .indicators > button {
   margin: 5px;
-  background: none;
+  background: transparent;  
 }
-
 .indicator-symbol {
-  color: #26343f;
+  color: #9096a2;
 }
 
 .indicator-symbol-active {
-  color: red;
+  color: #df2648;
 }

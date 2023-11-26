@@ -1,12 +1,12 @@
 import React from "react";
 import "./HerosectionStyling.css";
 import { Menu } from "./Menu/Menu";
-import { CarouselHero } from "./carousel/CarouselHero";
+import { SliderHero } from "./carousel/SliderHero";
 
 export const HeroSection = () => {
   return (
     <section className="hero-section">
-      <CarouselHero />
+      <SliderHero />
       <Menu />
     </section>
   );

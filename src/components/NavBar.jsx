@@ -1,35 +1,41 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import "./NavbarStyling.css";
 import { NavLink } from "react-router-dom";
 import { FaRegHeart, FaCartShopping } from "react-icons/fa6";
 import { CiSearch } from "react-icons/ci";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { IoMdClose } from "react-icons/io";
+import { useShoppingCart } from "../pages/Home/shopingCart/context/ShopingCartContext";
 
-class NavBar extends Component {
-  state = { cliked: false };
-  handleClick = () => {
-    this.setState({ cliked: !this.state.cliked });
+export const NavBar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [color, setColor] = useState(false);
+  const { openCart, cartQuantity } = useShoppingCart();
+  const changeColor = () => {
+    if (window.scrollY >= 50) {
+      setColor(true);
+    } else {
+      setColor(false);
+    }
   };
-  render() {
-    return (
-      <header>
-        <nav>
-          <h1>Exclusive</h1>
-          <ul className= {this.state.cliked ? "navbar active" :"navbar"}>
-            <li>
-              <NavLink to={"/"}>Home</NavLink>
-            </li>
-            <li>
-              <NavLink to={"/contact"}>Contact</NavLink>
-            </li>
-            <li>
-              <NavLink to={"/about"}>About</NavLink>
-            </li>
-            <li>
-              <NavLink to={"/signup"}>Sign Up</NavLink>
-            </li>
-          </ul>
+  window.addEventListener("scroll", changeColor);
+  return (
+    <header className={color ? "header-bg" : ""}>
+      <nav>
+        <h1>Exclusive</h1>
+        <ul className={menuOpen ? "open" : ""}>
+          <li>
+            <NavLink to={"/"}>Home</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/contact"}>Contact</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/about"}>About</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/signup"}>Sign Up</NavLink>
+          </li>
+        </ul>
+        <div className="mini-box">
           <form>
             <input
               type="text"
@@ -44,17 +50,21 @@ class NavBar extends Component {
             <span>
               <FaRegHeart />
             </span>
-            <span>
-              <FaCartShopping />
-            </span>
+            {cartQuantity > 0 && (
+              <span>
+                <FaCartShopping onClick={openCart} />
+              </span>
+            )}
           </div>
-          <div className="hamburger-menu" onClick={this.handleClick}>
-            {this.state.cliked ? <span><IoMdClose /></span> : <span><GiHamburgerMenu /></span>}
-          </div>
-        </nav>
-      </header>
-    );
-  }
-}
+        </div>
+        <div className="menu" onClick={() => setMenuOpen(!menuOpen)}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+    </header>
+  );
+};
 
 export default NavBar;

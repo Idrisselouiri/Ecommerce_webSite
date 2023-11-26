@@ -6,7 +6,6 @@ const Todays = ({ countdownTimestampMs }) => {
   return (
     <div>
       <CountdownTimer countdownTimestampMs={countdownTimestampMs} />
-      <Carousel />
     </div>
   );
 };
