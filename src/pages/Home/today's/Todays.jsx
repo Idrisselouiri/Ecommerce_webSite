@@ -1,11 +1,12 @@
 import React from "react";
 import CountdownTimer from "./Countdown Timer/CountdownTimer";
-import Carousel from "./slider/Carousel";
+import CarouselTodays from "./slider/CarouselTodays";
 
 const Todays = ({ countdownTimestampMs }) => {
   return (
     <div>
       <CountdownTimer countdownTimestampMs={countdownTimestampMs} />
+      <CarouselTodays />
     </div>
   );
 };

@@ -1,26 +1,46 @@
 import React from "react";
-import { Col, Row } from "react-bootstrap";
-import storeItems from "../shopingCart/data/db.json";
-import { StoreItems } from "./StoreItems";
+import { FaStar, FaStarHalfAlt } from "react-icons/fa";
+import "./StoreStyling.css";
+import { ProductCart } from "./dataProductCart/productCart";
 
 const Store = () => {
   return (
-    <>
-      <h1 style={{ padding: "0 30px" }}>Store</h1>
-      <Row
-        md={2}
-        xs={1}
-        lg={3}
-        className="g-3"
-        style={{ padding: "0 30px", margin: "auto" }}
-      >
-        {storeItems.map((item) => (
-          <Col key={item.id}>
-            <StoreItems {...item} />
-          </Col>
+    <section className="shoping-cart">
+      <div className="title-products">
+        <div className="text">
+          <div className="square"></div>
+          <p>Our Products</p>
+        </div>
+        <h1>Explore Our Products</h1>
+      </div>
+      <div className="container-product">
+        {ProductCart.map((product) => (
+          <div className="box" key={product.id}>
+            <div className="box-image">
+              <img src={product.imgUrl} />
+            </div>
+            <h3>{product.name}</h3>
+            <div className="prrvnumb">
+              <a>{product.price}</a>
+              <span>
+                <FaStar />
+              </span>
+              <span>
+                <FaStar />
+              </span>
+              <span>
+                <FaStar />
+              </span>
+              <span>
+                <FaStarHalfAlt />
+              </span>
+              <h5>{product.reviews}</h5>
+            </div>
+            <button className="btn-add_to_cart">Add To Cart</button>
+          </div>
         ))}
-      </Row>
-    </>
+      </div>
+    </section>
   );
 };
 

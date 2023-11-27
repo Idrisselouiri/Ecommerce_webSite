@@ -1,61 +1,37 @@
 .countdown-timer {
-    width: 600px;
+    width: 90%;
     height: 100px;
     border: 2px solid black;
-
     font-family: "Oswald";
     font-size: 30px;
-
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin:0 auto ;
+    margin-top: 150px;
 }
-
-.countdown-timer span {
-    margin-left: 5px;
-    margin-right: 5px;
-}
-.container-countdown-timer {
-    margin-top: 80px;
-    padding: 0 30px;
-    font-family: "Oswald";
-    font-size: 30px;
-}
-.container-countdown-timer .title{
+.countdown-timer .title{
     display: flex;
     align-items: center;
     column-gap: 20px;
-    color: red;
+    color: #df2648;
 }
-.container-countdown-timer .title div{
+.countdown-timer .title div{
     width: 30px;
-    height: 50px;
-    background-color: red;
-    border-radius: 10px;
+    height: 60px;
+    background-color :#df2648;
+    border-radius: 5px;
 }
-.box-countdown-timer{
+.countdown-timer .box-rectangular{
     display: flex;
     align-items: center;
-    column-gap: 80px;
-    margin-top: 30px;
-}
-.div-span{
-    display: flex;
-    align-items: center;
-    justify-content: center;
     column-gap: 30px;
 }
-.div-span div{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    border-right: 1px solid red;
-}
-.div-span span {
+.countdown-timer .box-rectangular span {
     margin-left: 5px;
     margin-right: 5px;
 }
-.two-numbers {
-    width: 2ch;
+.countdown-timer .box-rectangular .numbers {
+    font-size: 50px;
 }

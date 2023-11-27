@@ -1,11 +1,12 @@
 import React from "react";
 import { Stack, Button } from "react-bootstrap";
-import storeItems from "../shopingCart/data/db.json";
+import { ProductCart } from "./dataProductCart/productCart";
 import FormatCurrency from "./FormatCurrency";
 import { useShoppingCart } from "./context/ShopingCartContext";
+
 const CartItem = ({ id, quantity }) => {
   const { removeFromCart } = useShoppingCart();
-  const item = storeItems.find((i) => i.id === id);
+  const item = ProductCart.find((i) => i.id === id);
   if (item == null) return null;
   return (
     <Stack direction="horizontal" gap={2} className="d-flex align-items-center">
