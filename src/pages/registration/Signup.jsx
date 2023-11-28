@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Signup.css";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 export const Signup = () => {
   const [formData, setFormData] = useState({
@@ -78,11 +79,11 @@ export const Signup = () => {
               setFormData({ ...formData, password: e.target.value })
             }
           />
-          <button>Create Account</button>
+          <Link to="/login">Create Account</Link>
         </form>
         <div className="div-link">
           <p>Already have account?</p>
-          <a href="">Log in</a>
+          <Link to={"/login"}>Log in</Link>
         </div>
       </div>
     </section>

@@ -7,6 +7,7 @@ import { About } from "./pages/About/About";
 import { ShoppingCartProvider } from "./pages/Home/shopingCart/context/ShopingCartContext";
 import { Signup } from "./pages/registration/SignUp";
 import { Login } from "./pages/registration/Login";
+import { ShopingCart } from "./pages/Home/shopingCart/ShopingCart";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           <Route path="about" element={<About />} />
           <Route path="signup" element={<Signup />} />
           <Route path="login" element={<Login />} />
+          <Route path="shopingCart" element={<ShopingCart />} />
         </Routes>
       </ShoppingCartProvider>
     </Router>

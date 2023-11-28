@@ -1,8 +1,8 @@
 import React, { createContext } from "react";
 import { useContext } from "react";
 import { useState } from "react";
-import ShoppingCart from "../ShopingCart";
 import { useEffect } from "react";
+
 const ShoppingCartContext = createContext({});
 const initialCartItems = localStorage.getItem("shopping-cart")
   ? JSON.parse(localStorage.getItem("shopping-cart"))
@@ -10,7 +10,6 @@ const initialCartItems = localStorage.getItem("shopping-cart")
 
 export const ShoppingCartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(initialCartItems);
-  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("shopping-cart", JSON.stringify(cartItems));
@@ -20,13 +19,6 @@ export const ShoppingCartProvider = ({ children }) => {
     (quantity, item) => item.quantity + quantity,
     0
   );
-
-  const openCart = () => {
-    setIsOpen(true);
-  };
-  const closeCart = () => {
-    setIsOpen(false);
-  };
   const getItemQuantity = (id) => {
     return cartItems.find((item) => item.id === id)?.quantity || 0;
   };
@@ -70,14 +62,11 @@ export const ShoppingCartProvider = ({ children }) => {
         increaseCartQuantity,
         decreaseCartQuantity,
         removeFromCart,
-        openCart,
-        closeCart,
         cartQuantity,
         cartItems,
       }}
     >
       {children}
-      <ShoppingCart isOpen={isOpen} />
     </ShoppingCartContext.Provider>
   );
 };

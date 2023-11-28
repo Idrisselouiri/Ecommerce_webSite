@@ -1,43 +1,29 @@
 import React from "react";
-import { Stack, Button } from "react-bootstrap";
+import { useShoppingCart } from "./context/ShopingCartContext";
 import { ProductCart } from "./dataProductCart/productCart";
 import FormatCurrency from "./FormatCurrency";
-import { useShoppingCart } from "./context/ShopingCartContext";
 
-const CartItem = ({ id, quantity }) => {
+export const CartItems = ({ id, quantity }) => {
   const { removeFromCart } = useShoppingCart();
   const item = ProductCart.find((i) => i.id === id);
   if (item == null) return null;
   return (
-    <Stack direction="horizontal" gap={2} className="d-flex align-items-center">
-      <img
-        src={item.imgUrl}
-        alt="cart-img"
-        style={{ width: "125px", height: "75px", objectFit: "cover" }}
-      />
-      <div className="me-auto">
-        <div>
-          {item.name}{" "}
-          {quantity > 1 && (
-            <span className="text-muted" style={{ fontSize: "0.65rem" }}>
-              x{quantity}
-            </span>
-          )}
-        </div>
-        <div className="text-muted" style={{ fontSize: "0.75rem" }}>
-          {FormatCurrency(item.price)}
-        </div>
-      </div>
-      <div>{FormatCurrency(item.price * quantity)}</div>
-      <Button
-        variant="outline-danger"
-        size="sm"
-        onClick={() => removeFromCart(item.id)}
-      >
-        &times;
-      </Button>
-    </Stack>
+    <tr>
+      <td className="imageName">
+        <img src={item.imgUrl} />
+        <p>{item.name}</p>
+      </td>
+      <td>{FormatCurrency(item.price)}</td>
+      <td>{quantity > 1 && <a>x{quantity}</a>}</td>
+      <td>{FormatCurrency(item.price * quantity)}</td>
+      <td>
+        <button
+          className="btn-remove-cart"
+          onClick={() => removeFromCart(item.id)}
+        >
+          Remove
+        </button>
+      </td>
+    </tr>
   );
 };
-
-export default CartItem;

@@ -61,9 +61,30 @@ header nav form input::placeholder{
 header nav form span{
     font-size: 25px;
 }
+header nav .icons{
+    display: flex;
+    align-items: center;
+}
 header nav .icons span{
     margin: 0 10px;
     font-size: 25px;
+}
+header nav .icons .shop-cart{
+    position: relative;
+}
+header nav .icons .shop-cart .quatity{
+    position: absolute;
+    top: -0px;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #df2648;
+    font-size: 15px;
+    color: #ffffff;
 }
 nav .menu {
     display: none;
@@ -72,7 +93,6 @@ nav .menu {
     width: 2.25rem;
     height: 2rem;
 }
-
 nav .menu span {
     height: 0.4rem;
     width: 100%;

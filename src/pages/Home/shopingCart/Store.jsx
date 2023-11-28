@@ -1,7 +1,7 @@
 import React from "react";
-import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import "./StoreStyling.css";
 import { ProductCart } from "./dataProductCart/productCart";
+import StoreItems from "./StoreItems";
 
 const Store = () => {
   return (
@@ -15,29 +15,7 @@ const Store = () => {
       </div>
       <div className="container-product">
         {ProductCart.map((product) => (
-          <div className="box" key={product.id}>
-            <div className="box-image">
-              <img src={product.imgUrl} />
-            </div>
-            <h3>{product.name}</h3>
-            <div className="prrvnumb">
-              <a>{product.price}</a>
-              <span>
-                <FaStar />
-              </span>
-              <span>
-                <FaStar />
-              </span>
-              <span>
-                <FaStar />
-              </span>
-              <span>
-                <FaStarHalfAlt />
-              </span>
-              <h5>{product.reviews}</h5>
-            </div>
-            <button className="btn-add_to_cart">Add To Cart</button>
-          </div>
+          <StoreItems product={product} />
         ))}
       </div>
     </section>

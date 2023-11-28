@@ -2,7 +2,6 @@
     margin: 0 auto;
     margin-top: 150px;
     width: 90%;
-
 }
 .shoping-cart .title-products div{
     display: flex;
@@ -26,6 +25,7 @@
     margin: 50px auto;
     display: grid;
     grid-template-columns: repeat(4 , 1fr);
+    grid-template-rows: repeat(2 , auto);
     gap: 40px 30px;
 }
 .shoping-cart .container-product .box{
@@ -34,7 +34,7 @@
 }
 .shoping-cart .container-product .box-image{
     width: 100%;
-    height: 70%;
+    height: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,14 +69,52 @@
     padding-left: 5px;
     font-size: 18px;
 }
-.shoping-cart .container-product .box .btn-add_to_cart{
-    margin-top: 10px;
+.shoping-cart .container-product .box .btn-add{
+    margin-top: 20px;
     width: 100%;
     padding: 5px 0;
     border: none;
     border-radius: 5px;
     font-size: 18px;
     font-weight: 600;
-    background-color: #000000;
+    background-color: #df2648;
     color: #ffffff;
+}
+.shoping-cart .container-product .box .mini-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    row-gap: 30px;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.shoping-cart .container-product .box .mini-container .mini-box{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.shoping-cart .container-product .box .mini-container .mini-box button{
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #9096a2;
+    color: #ffffff;
+}
+.shoping-cart .container-product .box .mini-container .mini-box span{
+    font-size: 20px;
+    font-weight: 600;
+}
+.shoping-cart .container-product .box .mini-container .btn-rm{
+    width: 80%;
+    border: none;
+    padding: 5px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: #df2648;
 }

@@ -8,7 +8,7 @@ import { useShoppingCart } from "../pages/Home/shopingCart/context/ShopingCartCo
 export const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [color, setColor] = useState(false);
-  const { openCart, cartQuantity } = useShoppingCart();
+  const { cartQuantity } = useShoppingCart();
   const changeColor = () => {
     if (window.scrollY >= 50) {
       setColor(true);
@@ -51,9 +51,14 @@ export const NavBar = () => {
               <FaRegHeart />
             </span>
             {cartQuantity > 0 && (
-              <span>
-                <FaCartShopping onClick={openCart} />
-              </span>
+              <div className="shop-cart">
+                <NavLink to={"/shopingCart"}>
+                  <span>
+                    <FaCartShopping />
+                    <span className="quatity">{cartQuantity}</span>
+                  </span>
+                </NavLink>
+              </div>
             )}
           </div>
         </div>

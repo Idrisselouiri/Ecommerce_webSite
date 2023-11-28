@@ -1,59 +1,60 @@
 import React from "react";
-import { Button, Card } from "react-bootstrap";
+import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import FormatCurrency from "./FormatCurrency";
 import { useShoppingCart } from "./context/ShopingCartContext";
 
-export const StoreItems = ({ id, name, price, imgUrl }) => {
+const StoreItems = ({ product }) => {
   const {
     getItemQuantity,
     increaseCartQuantity,
     decreaseCartQuantity,
     removeFromCart,
   } = useShoppingCart();
-  const quantity = getItemQuantity(id);
+  const quantity = getItemQuantity(product.id);
   return (
-    <Card className="h-100">
-      <Card.Img
-        variant="top"
-        src={imgUrl}
-        style={{ height: "200px", objectFit: "cover" }}
-      />
-      <Card.Body className="d-flex flex-column">
-        <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">
-          <span className="fs-2">{name}</span>
-          <span className="ms-2 text-muted">{FormatCurrency(price)}</span>
-        </Card.Title>
-        <div className="mt-auto">
-          {quantity === 0 ? (
-            <Button className="w-100" onClick={() => increaseCartQuantity(id)}>
-              Add To Cart
-            </Button>
-          ) : (
-            <div
-              className="d-flex align-items-center flex-column"
-              style={{ gap: "0.5rem" }}
-            >
-              <div
-                className="d-flex align-items-center justify-content-center"
-                style={{ gap: "0.5rem" }}
-              >
-                <Button onClick={() => decreaseCartQuantity(id)}>-</Button>
-                <div>
-                  <span className="fs-3">{quantity} in cart</span>
-                </div>
-                <Button onClick={() => increaseCartQuantity(id)}>+</Button>
-              </div>
-              <Button
-                variant="danger"
-                size="sm"
-                onClick={() => removeFromCart(id)}
-              >
-                Remove
-              </Button>
+    <div className="box" key={product.id}>
+      <div className="box-image">
+        <img src={product.imgUrl} />
+      </div>
+      <h3>{product.name}</h3>
+      <div className="prrvnumb">
+        <a>{FormatCurrency(product.price)}</a>
+        <span>
+          <FaStar />
+        </span>
+        <span>
+          <FaStar />
+        </span>
+        <span>
+          <FaStar />
+        </span>
+        <span>
+          <FaStarHalfAlt />
+        </span>
+        <h5>{product.reviews}</h5>
+      </div>
+      {quantity === 0 ? (
+        <button
+          className="btn-add"
+          onClick={() => increaseCartQuantity(product.id)}
+        >
+          Add To Cart
+        </button>
+      ) : (
+        <div className="mini-container">
+          <div className="mini-box">
+            <button onClick={() => decreaseCartQuantity(product.id)}>-</button>
+            <div>
+              <span>{quantity} in cart</span>
             </div>
-          )}
+            <button onClick={() => increaseCartQuantity(product.id)}>+</button>
+          </div>
+          <button className="btn-rm" onClick={() => removeFromCart(product.id)}>
+            Remove
+          </button>
         </div>
-      </Card.Body>
-    </Card>
+      )}
+    </div>
   );
 };
+export default StoreItems;
